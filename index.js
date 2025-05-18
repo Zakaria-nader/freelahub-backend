@@ -22,11 +22,14 @@ app.post('/register', (req, res) => {
   users.push({ email, password });
   res.status(201).json({ message: 'تم إنشاء الحساب بنجاح' });
 });
+
 app.get('/', (req, res) => {
   res.send('مرحباً بك في FreelaHub!');
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+
+// تعديل السطر التالي ليعمل على كل الواجهات
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
